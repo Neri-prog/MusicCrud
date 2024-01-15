@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cadastro de Música</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      background-color: #f0f8ff;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #app-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #a0d4ff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #logo {
+      max-width: 10%;
+      height: auto;
+      display: block;
+      margin: 2 auto;
+      margin-bottom: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <div id="app-container">
+    <img id="logo" src="https://cdn-icons-png.flaticon.com/512/37/37070.png" alt="Nota musical">
+    <app-root></app-root>
+  </div>
+
+  <script>
+    window.onload = function() {
+        alert("Bem-vindo à sua playlist ♫ !");
+    };
+</script>
+</body>
+</html>

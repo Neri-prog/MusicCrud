@@ -1,0 +1,83 @@
+<div class="container mt-5">
+
+  <app-avisos></app-avisos>
+  <app-cadastrar></app-cadastrar>
+
+  <h3 class="mt-3">Lista de Músicas
+  </h3>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-secondary btn-sm ms-4" (click)="redirecionar('/logs')">Registros</button>
+  </div>
+  
+  <table class="table text-left">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Nome</th>
+        <th scope="col">Artista</th>
+        <th scope="col">Gênero</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.artista }}</td>
+        <td>{{ usuario.genero }}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal" data-bs-target="#editarModal"
+            (click)="edicao(i)">
+            Edit
+          </button>
+          <button class="btn btn-sm btn-danger ms-1" (click)="removeUser(i)">
+            Delet
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editarModalLabel">Editar Música</h1>
+        <div data-bs-theme="dark">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="clearDados()"></button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="col">
+          <div class="mb-2">Nome</div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="nome" placeholder="Nome" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-2">Artista</div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="artista" placeholder="Artista" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-2">Gênero</div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="genero" placeholder="Gênero" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearDados()">
+          Fechar
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarUser()"
+          [disabled]="!nome || !artista|| !genero ">
+          Salvar alterações
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col">
+    <h3>Cadastro de Músicas</h3>
+    <h5>Monte sua playlist</h5>
+  </div>
+</div>
+<div class="row row-cols-3">
+  <div class="col-4">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" id="nome" class="form-control" [(ngModel)]="nome" placeholder="Nome" name="nome" required />
+  </div>
+  <div class="col-4">
+    <label for="artista" class="form-label">Artista</label>
+    <input type="text" id="arista" class="form-control" [(ngModel)]="artista" placeholder="artista"
+      name="artista" required />
+  </div>
+  <div class="col-4">
+    <label for="genero" class="form-label">Gênero</label>
+    <input type="text" id="genero" class="form-control" [(ngModel)]="genero" placeholder="Genero" name="genero"
+      required />
+  </div>
+</div>
+<div class=" d-flex justify-content-end align-items-end mt-3">
+  <button class="btn btn-primary me-2 col-2" (click)="addUser()" [disabled]="!nome || !artista || !genero ">Enviar</button>
+</div>
